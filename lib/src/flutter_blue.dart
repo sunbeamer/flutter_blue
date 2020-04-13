@@ -119,14 +119,12 @@ class FlutterBlue {
         .map((p) {
       final result = new ScanResult.fromProto(p);
       final list = _scanResults.value;
-      int index = list.indexOf(result);
-      if (index != -1) {
-        list[index] = result;
-      } else {
-        list.add(result);
-      }
-      _scanResults.add(list);
+//      print('${DateTime.now().millisecondsSinceEpoch} ${result.device.name} found!!! rssi: ${result.rssi}');
+      _scanResults.value = [result];
       return result;
+//      for (ScanResult r in list) {
+//        print('${r.device.name} found! rssi: ${r.rssi}');
+//      }
     });
   }
 
